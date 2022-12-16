@@ -1,0 +1,23 @@
+/*Fonts*/
+$font-stack: 'Open Sans', sans-serif;
+
+/*Colors*/
+/*&_text*/
+$color-text-main: #2ac5a8;
+$color-text-light: #ffffff;
+$color-text-dark: #000;
+
+/*&_bg*/
+$color-bg-main: #dcf5e6;
+$color-bg-dark: #000000;
+$color-bg-light: #ffffff;
+$color-bg-disabled: #d7d9d9;
+
+/*&_buttons*/
+$color-button-main: #0bc08a;
+$color-button-secondary: #07c7a4;
+
+/*BreakPoints*/
+$first-breakpoint: 1024px;
+$second-breakpoint: 750px;
+$third-breakpoint: 500px;

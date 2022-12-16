@@ -1,0 +1,64 @@
+@import '/src/assets/scss/core/variables';
+
+.input {
+  font-size: 30px;
+  line-height: 33px;
+  font-weight: 500;
+  width: 100%;
+  position: relative;
+
+  &__field {
+    width: 100%;
+    padding: 15px 5px;
+    border-bottom: 1px solid currentColor;
+    text-align: center;
+    transition: border 0.2s ease-in;
+    text-transform: uppercase;
+    &::placeholder {
+      text-transform: uppercase;
+      color: currentColor;
+      transition: color 0.2s ease-in, opacity 0.2s ease-in;
+    }
+    &:focus {
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+    &:read-only {
+      user-select: none;
+      pointer-events: none;
+      &::placeholder {
+        opacity: 1;
+      }
+    }
+    &:hover {
+      &:focus {
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+      &:read-only {
+        &::placeholder {
+          opacity: 1;
+        }
+      }
+      &::placeholder {
+        opacity: 0.3;
+      }
+    }
+    &_disabled {
+      opacity: 0.4;
+      &::placeholder {
+        font: inherit;
+        color: $color-text-disabled;
+      }
+    }
+    &_error {
+      position: absolute;
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: none;
+      margin-top: 3px;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import 'src/assets/scss/core/variables';
+
+.button {
+  font-size: 60px;
+  line-height: 72px;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+  }
+}
