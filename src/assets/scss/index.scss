@@ -43,6 +43,5 @@ body {
   min-width: 300px;
   color: $color-text-dark;
   max-width: 100%;
-  overflow: hidden;
-  height: calc(var(--vh, 1vh) * 100);
+  background: $color-bg-main;
 }

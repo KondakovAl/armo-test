@@ -1,0 +1,20 @@
+@import '../../assets/scss/core/variables';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  height: 100%;
+  &__title {
+    color: $color-text-main;
+    font-weight: 300;
+    font-size: 30px;
+    align-self: center;
+    margin-bottom: 25px;
+  }
+  &__group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
