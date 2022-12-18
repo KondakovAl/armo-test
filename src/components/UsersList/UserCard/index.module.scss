@@ -1,0 +1,55 @@
+@import 'src/assets/scss/core/variables';
+
+.row {
+  &__item {
+    padding: 5px;
+    &_dot {
+      display: flex;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin: 0 auto;
+      &_access {
+        background-color: green;
+      }
+      &_denied {
+        background-color: red;
+      }
+    }
+    &_icon {
+      display: flex;
+      margin: auto;
+    }
+  }
+}
+
+.modal {
+  &_enter_active {
+    animation: ModalApper 0.4s ease-in;
+  }
+  &_enter_done {
+    backdrop-filter: blur(2px);
+    transition: backdrop-filter 0.2s ease-in;
+  }
+  &_exit_active {
+    animation: ModalDisapper 0.4s ease-in forwards;
+  }
+}
+
+@keyframes ModalApper {
+  from {
+    transform: translateY(30%) scale(0.5);
+  }
+  to {
+    transform: translateY(0%) scale(1);
+  }
+}
+
+@keyframes ModalDisapper {
+  from {
+    transform: translateY(0%) scale(1);
+  }
+  to {
+    transform: translateY(30%) scale(0);
+  }
+}

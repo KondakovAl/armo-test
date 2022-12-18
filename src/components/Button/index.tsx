@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import cn from 'classnames';
 
-import styles from './index.modules.scss';
+import styles from './index.module.scss';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ interface ButtonProps {
 const Button: FC<ButtonProps> = ({ children, type, className, onClick }) => {
   return (
     <button
-      className={cn(className, styles.button)}
+      className={cn(styles.button, className)}
       type={type ? type : 'button'}
       onClick={onClick}
     >
