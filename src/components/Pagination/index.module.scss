@@ -1,0 +1,40 @@
+@import '../../assets/scss/core/variables';
+
+.pagination {
+  padding: 15px 0;
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__item {
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    border: 1px solid $color-bg-secondary;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: all 0.3s ease-in;
+    &:last-child {
+      margin: 0%;
+    }
+    &_arrow {
+      background: $color-bg-secondary;
+      & path {
+        fill: $color-bg-light;
+      }
+    }
+    &_active {
+      border-radius: 20px;
+      background: $color-bg-secondary;
+      color: $color-text-light;
+    }
+    &_disabled {
+      background: $color-bg-disabled;
+      border: 1px solid $color-bg-dark;
+      & path {
+        fill: $color-bg-dark;
+      }
+    }
+  }
+}

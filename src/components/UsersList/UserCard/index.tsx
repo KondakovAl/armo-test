@@ -12,13 +12,14 @@ import { CSSTransition } from 'react-transition-group';
 
 interface IUserCard {
   user: UserProps;
+  handleDeleteUser: (id: number) => void;
 }
 
 interface IUserFields {
   field: string | boolean;
 }
 
-const UserCard: FC<IUserCard> = ({ user }) => {
+const UserCard: FC<IUserCard> = ({ user, handleDeleteUser }) => {
   const { isShowing, toggle } = useModal();
 
   const userFields: IUserFields[] = [
@@ -39,10 +40,8 @@ const UserCard: FC<IUserCard> = ({ user }) => {
             ) : (
               <span
                 className={cn(styles.row__item_dot, {
-                  [styles.row__item_dot_access]:
-                    typeof el.field === 'boolean' && el.field === true,
-                  [styles.row__item_dot_denied]:
-                    typeof el.field === 'boolean' && el.field === false,
+                  [styles.row__item_dot_access]: el.field,
+                  [styles.row__item_dot_denied]: !el.field,
                 })}
               />
             )}
@@ -54,7 +53,7 @@ const UserCard: FC<IUserCard> = ({ user }) => {
         <td className={styles.row__item}>
           <DeleteIcon
             className={styles.row__item_icon}
-            onClick={() => console.log('delete')}
+            onClick={() => handleDeleteUser(user.id)}
           />
         </td>
       </tr>
