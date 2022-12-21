@@ -3,6 +3,8 @@
 .table {
   border-collapse: collapse;
   text-align: start;
+  table-layout: fixed;
+  min-height: 390px;
 }
 
 .head__row_item {
