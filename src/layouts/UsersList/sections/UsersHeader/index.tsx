@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 
-import { FC, useRef } from 'react';
+import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import { Popup } from '../../../../components/Popup';
@@ -15,7 +15,6 @@ import {
   setLastName,
 } from '../../../../store/filterSlice';
 import { onFilterCell } from '../../../../types/types';
-import { Button } from '../../../../components/Button';
 
 interface UsersHeaderProps {
   header: {

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 import { NextIcon, PrevIcon } from '../../assets/icons';
 import styles from './index.module.scss';
 import cn from 'classnames';
@@ -7,7 +7,7 @@ interface PaginationProps {
   totalCount: number;
   limit: number;
   page: number;
-  setPage: any;
+  setPage: Dispatch<SetStateAction<number>>;
 }
 
 const Pagination: FC<PaginationProps> = ({

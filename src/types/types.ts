@@ -7,6 +7,14 @@ export interface UserProps {
   firstName: string;
 }
 
+export interface UsersHeadProps {
+  title: string;
+  type: onFilterCell;
+  filterValue: string | boolean;
+  isOpen: boolean;
+  setIsOpen: any;
+}
+
 export type onFilterCell =
   | 'firstName'
   | 'lastName'

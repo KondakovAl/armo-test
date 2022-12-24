@@ -18,7 +18,7 @@ import {
   setIsFirstNameOpen,
   setIsLastNameOpen,
 } from '../../store/popupsSlice';
-import { onFilterCell } from '../../types/types';
+import { UserProps, UsersHeadProps } from '../../types/types';
 import { clearAll } from '../../store/filterSlice';
 import { Button } from '../../components/Button';
 
@@ -38,15 +38,9 @@ const UsersList: FC<UsersListProps> = ({ className }) => {
 
   const { data, isSuccess, isFetching } = useFetchAllUsersQuery('');
 
-  const [dataSave, setDataSave] = useState<any>([]);
+  const [dataSave, setDataSave] = useState<UserProps[] | []>([]);
 
-  const usersHead: {
-    title: string;
-    type: onFilterCell;
-    filterValue: string | boolean;
-    isOpen: boolean;
-    setIsOpen: any;
-  }[] = [
+  const usersHead: UsersHeadProps[] = [
     {
       title: 'First Name',
       type: 'firstName',
@@ -90,16 +84,15 @@ const UsersList: FC<UsersListProps> = ({ className }) => {
         setPage((prev): number => prev - 1);
       }
       setDataSave(data);
-      console.log(dataSave);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   useEffect(() => {
-    console.log(filter);
     if (data) {
       const filtredArr = [...data];
+      // eslint-disable-next-line
       const newFiltredArr = filtredArr.filter((item) => {
         const firstNameCond = filter.firstName
           ? item.firstName.includes(filter.firstName)
@@ -144,7 +137,7 @@ const UsersList: FC<UsersListProps> = ({ className }) => {
           >
             <thead className={cn(styles.table__head, styles.head)}>
               <tr className={styles.head__row}>
-                {usersHead.map((header: any, i: number) => (
+                {usersHead.map((header: UsersHeadProps, i: number) => (
                   <UsersHeader key={i} header={header} />
                 ))}
                 <th className={styles.head__row} colSpan={2} align='center'>
@@ -164,7 +157,9 @@ const UsersList: FC<UsersListProps> = ({ className }) => {
               {data.length > 0 &&
                 dataSave
                   .slice(indexOfFirst, indexOfLast)
-                  .map((user: any) => <UserCard user={user} key={user.id} />)}
+                  .map((user: UserProps) => (
+                    <UserCard user={user} key={user.id} />
+                  ))}
               {dataSave.length === 0 && (
                 <tr>
                   <td colSpan={6} align='center'>
