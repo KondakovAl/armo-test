@@ -1,27 +1,17 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-// import { BACKEND_API_URL } from '../constants/global';
 import { UserProps } from '../types/types';
+import { BACKEND_API_URL } from '../constants/global';
 
 export const usersSlice = createApi({
   reducerPath: 'users',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://retoolapi.dev/UKLcoE' }),
+  baseQuery: fetchBaseQuery({ baseUrl: BACKEND_API_URL }),
 
   tagTypes: ['Users'],
   endpoints: (builder) => ({
-    fetchAllUsers: builder.query<any, any>({
+    fetchAllUsers: builder.query<UserProps[], string>({
       query: () => ({
         url: '/users',
-        // params: {
-        //   _page: page,
-        //   _limit: 10,
-        // },
       }),
-      // transformResponse: (apiResponse, meta: any) => {
-      //   return {
-      //     apiResponse,
-      //     totalCount: Number(meta.response.headers.get('X-Total-Count')),
-      //   };
-      // },
       providesTags: () => ['Users'],
     }),
     addUser: builder.mutation({

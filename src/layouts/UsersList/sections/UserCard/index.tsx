@@ -7,7 +7,7 @@ import { CorrectIcon, DeleteIcon } from '../../../../assets/icons';
 import cn from 'classnames';
 import { Modal } from '../../../../components/Modal';
 import { useModal } from '../../../../hooks/useModal';
-import { CorrectForm } from '../../../CorrectForm';
+import { CorrectForm, FormValues } from '../../../CorrectForm';
 import { CSSTransition } from 'react-transition-group';
 import {
   useDeleteUserMutation,
@@ -33,7 +33,7 @@ const UserCard: FC<IUserCard> = ({ user }) => {
     deleteUser(id);
   };
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: FormValues) => {
     await updateUser(values);
     toggle();
   };

@@ -19,7 +19,7 @@ interface FormProps {
   isSuccess: boolean;
 }
 
-interface FormValues {
+export interface FormValues {
   id: string | number;
   firstName: string;
   lastName: string;

@@ -1,18 +1,15 @@
 import styles from './index.module.scss';
 
-import { FC } from 'react';
 import { Title } from '../../components/Title';
 import { Button } from '../../components/Button';
 
 import { CSSTransition } from 'react-transition-group';
 import { useModal } from '../../hooks/useModal';
 import { Modal } from '../../components/Modal';
-import { CorrectForm } from '../CorrectForm';
+import { CorrectForm, FormValues } from '../CorrectForm';
 import { useAddUserMutation } from '../../store/usersSlice';
 
-interface HeaderProps {}
-
-const Header: FC<HeaderProps> = () => {
+const Header = () => {
   const { isShowing, toggle } = useModal();
   const [addUser, { isLoading, isSuccess, isError }] = useAddUserMutation();
 
@@ -25,7 +22,7 @@ const Header: FC<HeaderProps> = () => {
     birthDate: '',
   };
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: FormValues) => {
     await addUser(values);
     toggle();
   };
