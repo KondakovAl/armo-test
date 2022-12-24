@@ -1,25 +1,12 @@
 @import 'src/assets/scss/core/variables';
 
-.row {
-  &__item {
-    padding: 5px;
-    &_dot {
-      display: flex;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin: 0 auto;
-      &_access {
-        background-color: green;
-      }
-      &_denied {
-        background-color: red;
-      }
-    }
-    &_icon {
-      display: flex;
-      margin: auto;
-    }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  &__title {
+    color: $color-text-main;
   }
 }
 

@@ -1,0 +1,64 @@
+@import '/src/assets/scss/core/variables';
+
+.popup {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: $color-bg-light;
+  border: 1px solid $color-bg-secondary;
+  border-radius: 10px;
+  padding: 10px;
+  line-height: 15px;
+  transition: box-shadow 0.2s ease-in;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &_access {
+    flex-direction: column;
+    padding: 0px;
+    gap: 0px;
+  }
+  &__field {
+    height: 32px;
+    width: 170px;
+  }
+  &__label {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    &:nth-child(1) {
+      padding-bottom: 7px;
+    }
+    &:nth-child(2) {
+      padding-top: 7px;
+    }
+  }
+  &__radio_custom {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $color-bg-secondary;
+    border-radius: 50%;
+    &::before {
+      content: '';
+      position: absolute;
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      border-radius: 50%;
+      background: $color-bg-secondary;
+      transition: 0.2s ease-in;
+    }
+  }
+  &__radio_real {
+    display: none;
+  }
+  &__radio_real:checked + &__radio_custom::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

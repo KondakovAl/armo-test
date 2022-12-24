@@ -2,16 +2,21 @@ import styles from './index.module.scss';
 
 import cn from 'classnames';
 
-import { Input } from '../Input';
-import { Button } from '../Button';
+import { Input } from '../../components/Input';
+import { Button } from '../../components/Button';
 import { Form, Formik, FormikErrors } from 'formik';
 import { FC } from 'react';
-import { UserProps } from '../../types/types';
-import { Title } from '../Title';
+import { Title } from '../../components/Title';
+import { CheckboxInput } from '../../components/CheckboxInput';
 
 interface FormProps {
   className?: string;
-  user: UserProps;
+  hide: () => void;
+  initialValues: FormValues;
+  handleSubmit: (values: FormValues) => void;
+  isLoading: boolean;
+  isError: boolean;
+  isSuccess: boolean;
 }
 
 interface FormValues {
@@ -23,7 +28,15 @@ interface FormValues {
   birthDate: string;
 }
 
-const CorrectForm: FC<FormProps> = ({ className, user }) => {
+const CorrectForm: FC<FormProps> = ({
+  className,
+  hide,
+  initialValues,
+  handleSubmit,
+  isError,
+  isLoading,
+  isSuccess,
+}) => {
   const validate = (values: FormValues) => {
     let errors: FormikErrors<FormValues> = {};
 
@@ -55,24 +68,15 @@ const CorrectForm: FC<FormProps> = ({ className, user }) => {
 
     return errors;
   };
-  console.log('user', user);
 
   return (
     <>
       <Formik
-        initialValues={{
-          id: user.id ? user.id : new Date().toISOString(),
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          access: user.access,
-          birthDate: user.birthDate,
-        }}
-        validateOnMount
+        initialValues={initialValues}
         validateOnChange
         validate={validate}
         onSubmit={(values) => {
-          console.log('values', values);
+          handleSubmit(values);
         }}
       >
         <Form className={cn(styles.form, className)}>
@@ -80,21 +84,29 @@ const CorrectForm: FC<FormProps> = ({ className, user }) => {
             Изменить данные
           </Title>
           <div className={styles.form__group}>
-            <Input name={'firstName'} type={'text'} placeholder={'Имя*'} />
-            <Input name={'lastName'} type={'text'} placeholder={'Фамилия*'} />
+            <Input
+              name={'firstName'}
+              type={'text'}
+              placeholder={'First Name*'}
+            />
+            <Input name={'lastName'} type={'text'} placeholder={'Last Name*'} />
             <Input name={'email'} type={'text'} placeholder={'Email*'} />
             <Input
               name={'birthDate'}
               type={'text'}
-              placeholder={'Дата рождения*'}
+              placeholder={'Birth Date*'}
             />
-            <Input
-              name={'access'}
-              type={'checkbox'}
-              placeholder={'Дата рождения*'}
-            />
+            <CheckboxInput name={'access'} checked={initialValues.access} />
           </div>
-          <Button type='submit'>Перезаписать</Button>
+          <Button type='submit' className={styles.form__button}>
+            {isLoading
+              ? 'Loading...'
+              : isSuccess
+              ? 'Success'
+              : isError
+              ? 'Error, try later'
+              : 'Overwrite'}
+          </Button>
         </Form>
       </Formik>
     </>

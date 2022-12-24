@@ -1,10 +1,12 @@
-@import '../../assets/scss/core/variables';
+@import 'src/assets/scss/core/variables';
 
 .layout {
+  width: 100vw;
   &__wrapper {
     display: flex;
     flex-direction: column;
     width: calc(100% - 50px);
     margin: 0 auto;
+    height: calc(var(--vh, 1vh) * 100);
   }
 }

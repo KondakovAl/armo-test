@@ -1,4 +1,4 @@
-@import '../../assets/scss/core/variables';
+@import 'src/assets/scss/core/variables';
 
 .form {
   display: flex;
@@ -15,6 +15,7 @@
   &__group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 35px;
+    margin-bottom: 20px;
   }
 }
