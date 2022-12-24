@@ -44,4 +44,5 @@ body {
   color: $color-text-dark;
   max-width: 100%;
   background: $color-bg-main;
+  height: calc(var(--vh, 1vh) * 100);
 }

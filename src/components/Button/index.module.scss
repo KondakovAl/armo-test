@@ -5,6 +5,9 @@
   line-height: 24px;
   position: relative;
   color: $color-text-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   padding: 10px 15px;
   border-radius: 10px;

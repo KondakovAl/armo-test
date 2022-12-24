@@ -1,7 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import filterSlice from './filterSlice';
+import popupsSlice from './popupsSlice';
 import { usersSlice } from './usersSlice';
 
 const rootReducer = combineReducers({
+  popups: popupsSlice,
+  filter: filterSlice,
   [usersSlice.reducerPath]: usersSlice.reducer,
 });
 

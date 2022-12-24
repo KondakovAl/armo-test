@@ -1,0 +1,30 @@
+@import '/src/assets/scss/core/variables';
+
+.input {
+  font-size: 18px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  &__field {
+    display: none;
+  }
+  &__title {
+    text-transform: capitalize;
+  }
+  &__checkbox {
+    display: flex;
+    border: 1px solid $color-bg-thirdly;
+    border-radius: 7px;
+    transition: border 0.2s ease-in;
+    background: $color-bg-input;
+    width: 20px;
+    height: 20px;
+    &_access {
+      background-color: green;
+    }
+    &_denied {
+      background-color: red;
+    }
+  }
+}

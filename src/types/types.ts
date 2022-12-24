@@ -6,3 +6,10 @@ export interface UserProps {
   birthDate: string;
   firstName: string;
 }
+
+export type onFilterCell =
+  | 'firstName'
+  | 'lastName'
+  | 'email'
+  | 'birthdate'
+  | 'access';

@@ -1,4 +1,4 @@
-@import '../../assets/scss/core/variables';
+@import '/src/assets/scss/core/variables';
 
 .modal {
   position: absolute;
@@ -11,7 +11,6 @@
   overflow-x: hidden;
   justify-content: center;
   align-items: center;
-  // backdrop-filter: blur(2px);
   z-index: 100;
   &__wrapper {
     position: relative;

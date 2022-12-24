@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler } from 'react';
+import { FC } from 'react';
 import { NextIcon, PrevIcon } from '../../assets/icons';
 import styles from './index.module.scss';
 import cn from 'classnames';
@@ -19,7 +19,7 @@ const Pagination: FC<PaginationProps> = ({
   const totalPages = Math.ceil(totalCount / limit);
 
   return (
-    <div className={styles.pagination}>
+    <div className={cn(styles.pagination)}>
       <div className={styles.pagination__wrapper}>
         <PrevIcon
           className={cn(
